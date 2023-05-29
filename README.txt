@@ -1,0 +1,1 @@
+Spring Core example#1
