@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="bow" class="by.potapenko.Bow">
+        <property name="arrows">
+            <list>
+                <bean id="steel" class="by.potapenko.Arrow" scope="prototype">
+                    <constructor-arg name="damage" value="50"/>
+                </bean>
+                <bean id="silver" class="by.potapenko.Arrow" scope="prototype">
+                    <constructor-arg name="damage" value="60"/>
+                </bean>
+                <bean id="gold" class="by.potapenko.Arrow" scope="prototype">
+                    <constructor-arg name="damage" value="70"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="dagger" class="by.potapenko.Dagger">
+        <constructor-arg name="damage" value="100"/>
+    </bean>
+
+    <bean id="archer" class="by.potapenko.Archer">
+        <constructor-arg name="name" value="Anhel"/>
+        <property name="weapons">
+            <list>
+                <ref bean="dagger"/>
+                <ref bean="bow"/>
+            </list>
+        </property>
+    </bean>
+</beans>
